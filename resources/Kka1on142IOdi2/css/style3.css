@@ -1,0 +1,31 @@
+#cuadricula {
+  width: 90px;
+  height: 90px;
+}
+.casilla {
+  width: 28px;
+  height: 28px;
+  border: 1px solid black;
+  display: inline-block;
+  margin: 0;
+  vertical-align: top;
+  position: relative;
+  font-size: 25px;
+  font-family: sans-serif;
+}
+.casilla.equis:after {
+  content: "x";
+  text-align: center;
+  width: 100%;
+  display: inline-block;
+  position: absolute;
+  top: -2px;
+}
+.casilla.circulo:after {
+  content: "○";
+  text-align: center;
+  width: 100%;
+  display: inline-block;
+  position: absolute;
+  top: -2px; 
+}

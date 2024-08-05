@@ -1,0 +1,18 @@
+#cuadricula {
+  width: 90px;
+  height: 90px;
+}
+.casilla {
+  width: 28px;
+  height: 28px;
+  border: 1px solid black;
+  display: inline-block;
+  margin: 0;
+  vertical-align: top;
+}
+.casilla.equis {
+  background-color: red;
+}
+.casilla.circulo {
+  background-color: blue;
+}

@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Cómo hacer un juego de triqui en HTML5? | Tutorial | Luis Eduardo Gallego García</title>
+    <link rel="stylesheet" href="/resources/icomoon/style.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/resources/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/prism.css">
+</head>
+
+<body>
+    <header>
+        <div class="burger-menu">
+            <span class="s1"></span>
+            <span class="s2"></span>
+            <span class="s3"></span>
+            <span class="s4"></span>
+        </div>
+        <figure>
+            <object data="/resources/logo.svg" type="image/svg+xml"></object>
+        </figure>
+        <nav>
+            <ul>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/blog.html">blog</a></li>
+                <li><a href="/portfolio.html">portfolio</a></li>
+                <li><a href="/contact.html">contáctame</a></li>
+            </ul>
+        </nav>
+        <section class="social">
+            <aside class="logo liril">
+                <a target="_blank" href="https://liril-co.github.io/A.K.A._Dizzy/"></a>
+            </aside>
+            <aside class="logo icon-facebook facebook">
+                <a target="_blank" href="https://www.facebook.com/LuisEduardoGallegoGarciaE/"></a>
+            </aside>
+            <aside class="logo icon-x x">
+                <a target="_blank" href="https://x.com/Diz3zy"></a>
+            </aside>
+            <aside class="logo icon-github-alt github">
+                <a target="_blank" href="https://github.com/liril-co/"></a>
+            </aside>
+        </section>
+    </header>
+    
+    <main class="content">
+        <article class="post">
+            <section id="fullTut">
+                <span class="post-meta">
+                    <time datetime="2014-04-07">07 Apr 2014</time>
+                </span>
+                <h1 class="post-title">¿Cómo hacer un juego de triqui en HTML5?</h1>
+                <section class="post-content">
+                    <img src="/resources/Kka1on142IOdi2/photos/triqui_poster.jpg"
+                        alt="Una partida de triqui en que ganó la equis">
+                    <p>
+                        Para aprender algo si estás muy básico en el HTML5 <span class="icon-html-five"></span>,
+                        perfecto; vamos a aprender a hacer un juego de <i>triqui</i> o <i>tic tac toe</i> con HTML
+                        básico, y también CSS y Javascript que entenderás hasta si no sabías nada de esto.
+                    </p>
+                    <p>
+                        Este es el tutorial completo, puedes ver el tutorial resumido y sólo el código, si quieres,
+                        dándole click a alguna de las tres pestañas de arriba del todo de la página.
+                    </p>
+                    <br>
+                    <p>
+                        Vamos a empezar por explicar el juego. <i>Triqui</i> o <i>tic tac toe</i>, es un juego de
+                        cuaderno conocido de hace mucho por todos,
+                        primero, dibujas una cuadrícula con o sin bordes de 3 por 3..:
+                    </p>
+                    <img src="/resources/Kka1on142IOdi2/photos/triqui.jpg"
+                        alt="Imagen hecha a mano pero con un computador de una cuadrícula de tres por tres sin bordes negra sobre un fondo blanco">
+                    <p>Es indispensable que hayan, y además sólo, dos jugadores... deciden cuál va a comenzar de alguna
+                        manera y éste dibuja la equis en cualquiera de las nueve casillas disponibles:</p>
+                    <img src="/resources/Kka1on142IOdi2/photos/triqui1.jpg"
+                        alt="La misma cuadrícula de la imagen anterior con una equis dibujada en la primera columna en la segunda fila">
+                    <p>Sigue el otro jugador, dibujando circunferencias o bolas, y se iran turnando sucesivamente hasta
+                        que uno de ellos dibuje tres de su símbolo seguidos en una de las tres filas o una de las tres
+                        columnas, o en una de las dos diágonales.</p>
+                    <img src="/resources/Kka1on142IOdi2/photos/triqui2.jpg"
+                        alt="La misma cuadrícula de la imagen anterior con una equis dibujada en la primera columna en la segunda fila">
+                    <img class="halfwidth" src="/resources/Kka1on142IOdi2/photos/triqui3.jpg"
+                        alt="La misma cuadrícula de la imagen anterior con una equis dibujada en la primera columna en la segunda fila">
+                    <img class="halfwidth" src="/resources/Kka1on142IOdi2/photos/triqui4.jpg"
+                        alt="La misma cuadrícula de la imagen anterior con una equis dibujada en la primera columna en la segunda fila">
+                    <img class="halfwidth" src="/resources/Kka1on142IOdi2/photos/triqui5.jpg"
+                        alt="La misma cuadrícula de la imagen anterior con una equis dibujada en la primera columna en la segunda fila">
+                    <img class="halfwidth" src="/resources/Kka1on142IOdi2/photos/triqui6.jpg"
+                        alt="La misma cuadrícula de la imagen anterior con una equis dibujada en la primera columna en la segunda fila">
+
+                    <h3 id="useconstraints">Bueno...</h3>
+
+                    <p>ya entendimos el juego, podría ganar cualquiera o ninguno. Ahora vamos a programarlo; empecemos
+                        por el HTML, creemos en una carpeta vacía un archivo llamado <i class="code">index.html</i>.</p>
+                    <p>Primero que nada, tenemos que maquetar el documento HTML básico:</p>
+                    <div class="parent">
+                        <div class="stScroll">
+                            <div class="ensanchador"></div>
+                        </div>
+                        <pre data-src="/resources/Kka1on142IOdi2/triqui.html"></pre>
+                    </div>
+                    <p>Esto es lo mismo en el caso de cualquier documento HTML, en la etiqueta <i
+                            class="code">&lt;title&gt;&lt;/title&gt;</i> pusimos el nombre del documento.</p>
+                    <p>Ahora, tenemos que maquetar la cuadrícula. Hagamos nueve cajas que puedan contener cosas (una
+                        equis o una circunferencia), a su vez dentro de una caja. Un <i
+                            class="code">&lt;div&gt;&lt;/div&gt;</i> es una etiqueta de HTML, justo para esto, además.
+                        Una etiqueta de HTML debe abrirse y cerrarse y puede contener texto y/u otras etiquetas de HTML
+                        que a su vez deben abrirse y cerrarse.</p>
+                    <div class="parent">
+                        <div class="stScroll">
+                            <div class="ensanchador"></div>
+                        </div>
+                        <pre data-src="/resources/Kka1on142IOdi2/triqui1.html"></pre>
+                    </div>
+                    <p>Para identificar los elementos que creamos usando CSS y Javascript, debemos ponerles atributos
+                        identificadores a modo de nombres, como las <i class="code">clases</i>, que pueden tener varios
+                        elementos, o los <i class="code">id</i>, que son únicos, para un elemento solamente. Usemos un
+                        <i class="code">id</i> para la cuadrícula, que es sólo una, y usemos <i class="code">clases</i>
+                        para las casillas que son varias y similares.</p>
+                    <div class="parent">
+                        <div class="stScroll">
+                            <div class="ensanchador"></div>
+                        </div>
+                        <pre data-src="/resources/Kka1on142IOdi2/triqui2.html"></pre>
+                    </div>
+                    <p>Ahora creemos una carpeta en la misma carpeta donde está el archivo HTML, que se llama <i
+                            class="code">triqui.html</i>, para contener los estilos CSS, llamada <i class="code">css</i>
+                        y creemos allí un archivo llamado <i class="code">style.css</i>. La carpeta donde está <i
+                            class="code">triqui.html</i> ahora debería lucir así:</p>
+                    <div class="file_tree">
+                        css<br>
+                        └──style.css<br>
+                        triqui.html<br>
+                    </div>
+                    <p>Y abriendo <i class="code">triqui.html</i> deberíamos ver un documento sin nada visible:</p>
+                    <iframe src="/resources/Kka1on142IOdi2/triqui2.html" frameborder="0"></iframe>
+                    <p>Usemos la etiqueta <i class="code">&lt;link&gt;</i> para conectar <i class="code">triqui.html</i>
+                        con <i class="code">css/style.css</i>:</p>
+                    <div class="parent">
+                        <div class="stScroll">
+                            <div class="ensanchador"></div>
+                        </div>
+                        <pre data-src="/resources/Kka1on142IOdi2/triqui3.html"></pre>
+                    </div>
+                    <p>Ahora escribamos algunos estilos en CSS. Los estilos de CSS nos permiten definir la forma, el
+                        tamaño, el color y muchísimas otras cosas de los elementos de HTML.</p>
+                    <p>Definamos el alto y ancho de <i class="code">#cuadrícula</i> (los <i class="code">id</i> se
+                        identifican con un <i class="code">#</i> antes y las <i class="code">clases</i> con un <i
+                            class="code">.</i>, antes, también). El alto se llama <i class="code">height</i> en CSS y el
+                        ancho <i class="code">width</i>.</p>
+                    <div class="parent">
+                        <div class="stScroll">
+                            <div class="ensanchador"></div>
+                        </div>
+                        <pre data-src="/resources/Kka1on142IOdi2/css/style.css"></pre>
+                    </div>
+                    <iframe src="/resources/Kka1on142IOdi2/triqui3.html" frameborder="0"></iframe>
+                    <p><i class="code">display: inline-block;</i> hace que las casillas no se pongan una abajo de la
+                        otra sinó una a la derecha de la otra. Las casillas tienen un <i class="code">borde</i> de <i
+                            class="code">1px</i> (un píxel) a cada lado, entonces en vez de ponerles un ancho de <i
+                            class="code">30px</i> a cada uno, les puse un ancho de <i class="code">28px</i>, para que
+                        con los bordes sumara <i class="code">30px</i> cada casilla, y quedaran de a tres por fila por
+                        ende en la cuadrícula las casillas. Pero lidiar con HTML5 significa a veces tener que lidiar con
+                        comportamientos de navegadores anticuados de algunos usuarios que visitan nuestro sitio o
+                        aplicación web, y algunos resabios del mismo HTML en sí, y de CSS y Javascript; como en nuestro
+                        caso, que vemos que no caben perfectas las casillas en la cuadrícula a pesar de que el ancho
+                        total de cada una, con el borde, es de <i class="code">30px</i>. Esto se debe al espacio en
+                        blanco entre las casillas, todo lo que está señalado con guiones en este código: </p>
+                    <div class="parent">
+                        <div class="stScroll">
+                            <div class="ensanchador"></div>
+                        </div>
+                        <pre data-src="/resources/Kka1on142IOdi2/triqui4.html"></pre>
+                    </div>
+                    <p>La mejor manera de lidiar con esto, y que funcione en navegadores antiguos, es deshacernos de el
+                        <i class="code">espacio en blanco</i> entre elementos literalmente, cambiando el maquetado un
+                        poco:</p>
+                    <div class="parent">
+                        <div class="stScroll">
+                            <div class="ensanchador"></div>
+                        </div>
+                        <pre data-src="/resources/Kka1on142IOdi2/triqui5.html"></pre>
+                    </div>
+                    <iframe src="/resources/Kka1on142IOdi2/triqui5.html" frameborder="0"></iframe>
+                    <p>Y cambiémosle el <i class="code">vertical-align</i> a <i class="code">top</i> a las casillas para
+                        que se alineen de su parte de arriba con su posición dentro de la cuadrícula:</p>
+                    <div class="parent">
+                        <div class="stScroll">
+                            <div class="ensanchador"></div>
+                        </div>
+                        <pre data-src="/resources/Kka1on142IOdi2/css/style1.css"></pre>
+                    </div>
+                    <iframe src="/resources/Kka1on142IOdi2/triqui6.html" frameborder="0"></iframe>
+                    <p>¡Listo!; ya tenemos nuestra cuadrícula. Ahora creemos una carpeta llamada <i class="code">js</i>
+                        y creemos un archivo dentro de ésta llamado <i class="code">main.js</i>. Así debería lucir en
+                        este momento la carpeta donde está <i class="code">triqui.html</i>:</p>
+                    <div class="file_tree">
+                        css<br>
+                        └──style.css<br>
+                        js<br>
+                        └──main.js<br>
+                        triqui.html<br>
+                    </div>
+                    <p>Usemos la etiqueta <i class="code">&lt;script&gt;&lt;/script&gt;</i> para conectar <i
+                            class="code">triqui.html</i> con <i class="code">main.js</i>. Tenemos que tener en cuenta
+                        que HTML, como Javascript, se leen por el computador síncronamente, esto es, de arriba a abajo,
+                        de izquierda a derecha, una sola vez, muuuuuy rápido; mejor dicho, de inmediato, una página
+                        tarda en cargar mientras descarga el archivo de HTML y los archivos que esta solicita al
+                        servidor, donde están las carpetas con los archivos y las configuraciones de comunicación con el
+                        cliente. Entonces si ponemos la etiqueta <i class="code">&lt;script&gt;&lt;/script&gt;</i> en el
+                        <i class="code">&lt;head&gt;&lt;/head&gt;</i>, no tendrá acceso a los elementos dentro de la
+                        etiqueta <i class="code">&lt;body&gt;&lt;/body&gt;</i>, ni los códigos dentro de etiquetas <i
+                            class="code">&lt;script&gt;&lt;/script&gt;</i> de más abajo. Así conectaríamos <i
+                            class="code">triqui.html</i> con <i class="code">js/main.js</i>:</p>
+                    <div class="parent">
+                        <div class="stScroll">
+                            <div class="ensanchador"></div>
+                        </div>
+                        <pre data-src="/resources/Kka1on142IOdi2/triqui7.html"></pre>
+                    </div>
+                    <p>Lo vamos a poner en el <i class="code">head</i> porque vamos a escribirle un código para que
+                        espere a que se cargue el <i class="code">documento</i>. El código que usaremos es este:</p>
+                    <div class="parent">
+                        <div class="stScroll">
+                            <div class="ensanchador"></div>
+                        </div>
+                        <pre data-src="/resources/Kka1on142IOdi2/js/main.js"></pre>
+                    </div>
+                    <p><a target="_blank" href="/resources/Kka1on142IOdi2/folder/triqui.html">Ábre <i
+                                class="code">triqui.html</i> en otra página</a> para que veas la alerta justo cuando se
+                        produce.</p>
+                    <p>Hay varios <i class="code">eventListeners</i> que nos dispone Javascript, que pueden escuchar por
+                        ciertos eventos, como interacciones del usuario o eventos del documento; los puedes usar usando
+                        la función <i class="code">document.addEventListener()</i>, aquí, usamos el <i
+                            class="code">eventListener</i> <i class="code">DOMContentLoaded</i>, y la función que hay
+                        como segundo argumento de la función <i class="code">document.addEventListener()</i> es lo que
+                        se ejecutará cuando cargen todos los elementos del documento, que es aquello por lo que escucha
+                        <i class="code">DOMContentLoaded</i>, y en <i class="code">k</i> estarán disponibles todo el
+                        objeto que devuelve el <i class="code">eventListener</i>, o el <i class="code">callback</i>; no
+                        usaremos el <i class="code">callback</i> en este caso, sinó que usaremos <i
+                            class="code">alert()</i>, que nos permite aparecer un cuadro de diálogo del sistema con el
+                        texto que queramos, en este caso, la cantidad, que obtenemos con <i class="code">.length</i>, de
+                        las casillas, que obtenemos con <i class="code">document.getElementsByClassName("casilla")</i>.
+                    </p>
+                    <div class="parent">
+                        <div class="stScroll">
+                            <div class="ensanchador"></div>
+                        </div>
+                        <pre data-src="/resources/Kka1on142IOdi2/js/main.js"></pre>
+                    </div>
+                    <p>¡Pero hagámoslo más calido y humano!, pongamos un mensaje más largo para dar ese dato:</p>
+                    <div class="parent">
+                        <div class="stScroll">
+                            <div class="ensanchador"></div>
+                        </div>
+                        <pre data-src="/resources/Kka1on142IOdi2/js/main1.js"></pre>
+                    </div>
+                    <p><a target="_blank" href="/resources/Kka1on142IOdi2/folder1/triqui.html">Míra <i
+                                class="code">triqui.html</i> aquí</a>.</p>
+                    <p>Pero hágamos algo diferente cuando cargue la página; lo que íbamos a hacer, el <i>Triqui</i>. Lo
+                        que debería suceder cuando se cargue la página es que le pongamos un <i
+                            class="code">eventListener</i> a las casillas que nos diga cuando le dio click el usuario;
+                        ésto lo hacemos así:</p>
+                    <div class="parent">
+                        <div class="stScroll">
+                            <div class="ensanchador"></div>
+                        </div>
+                        <pre data-src="/resources/Kka1on142IOdi2/js/main2.js"></pre>
+                    </div>
+                    <p>El primero de los 9 elementos que obtenemos con <i
+                            class="code">document.getElementsByClassName</i> es el 0 y lo accedemos así: <i
+                            class="code">document.getElementsByClassName("casilla")[0]</i>. Vamos a empezar con la
+                        casilla 0 y seguir con cada una hasta la 8, que es la novena, por que empiezan en 0 y no en 1, y
+                        ponerle a cada una el <i class="code">eventListener</i> para que haga algo cuando le de click el
+                        usuario, ¡podemos hasta cambiar el CSS con Javascript!; esto lo podemos hacer con un bucle <i
+                            class="code">for(inicialización, condición, incrementador){}</i>. Lo que dice <i
+                            class="code">var i= 0;</i> es la inicialización, inicializamos la variable <i
+                            class="code">i</i> en 0. Después; lo que dice <i class="code">i <
+                                document.getElementsByClassName("casilla").length;</i> es la condición, que <i
+                                    class="code">i</i> sea menor que la cantidad de casillas, que es nueve, si se
+                                cumple, cuando llega el código a la condición luego de la inicialización, que es sólo la
+                                primera vez, como el nombre lo dice, entra a ejecutar lo que hay entre llaves <i
+                                    class="code">{}</i>, luego de la inicialización y de que se haya ejecutado el código
+                                entre llaves, el bucle pasa al incrementador, que es lo que dice <i
+                                    class="code">i++</i>, en este caso aumenta 1 al valor de <i class="code">i</i>, de
+                                ahí pasa a la condición y si se sigue cumpliendo ejecuta lo que hay entre llaves.</p>
+                    <p>Así, estaremos con el código dentro de las llaves, que además usa <i class="code">i</i> para
+                        denotar la posición de cada una de las nueve casillas, poniéndole el <i
+                            class="code">eventListener</i> a cada una. El <i class="code">eventListener</i> en sí cambia
+                        el color del fondo de la casilla por otro cuando el usuario le da click.</p>
+                    <iframe src="/resources/Kka1on142IOdi2/triqui8.html" frameborder="0"></iframe>
+                    <p>Ahora, vamos a cambiarle el css a las casillas pero poniéndoles clases, intercalando las clases
+                        <i class="code">equis</i> y <i class="code">circulo</i>, al darle click; empecemos por quitar el
+                        código que teníamos y definir la variable<i class="code">turno</i> como <i
+                            class="code">"equis"</i>, así:</p>
+                    <div class="parent">
+                        <div class="stScroll">
+                            <div class="ensanchador"></div>
+                        </div>
+                        <pre data-src="/resources/Kka1on142IOdi2/js/main3.js"></pre>
+                    </div>
+                    <p>Ahora, lo que debe suceder al dar click a una casilla es que se le ponga una clase que será el
+                        valor de <i class="code">turno</i>; después le asignaremos estilos de css específicos a los
+                        elementos con estas clases.</p>
+                    <p>Así quedaría <i class="code">/js/main.js</i></p>
+                    <div class="parent">
+                        <div class="stScroll">
+                            <div class="ensanchador"></div>
+                        </div>
+                        <pre data-src="/resources/Kka1on142IOdi2/js/main4.js"></pre>
+                    </div>
+                    <p>Y así quedaría <i class="code">/css/style.css</i></p>
+                    <div class="parent">
+                        <div class="stScroll">
+                            <div class="ensanchador"></div>
+                        </div>
+                        <pre data-src="/resources/Kka1on142IOdi2/css/style2.css"></pre>
+                    </div>
+                    <p>Y así está el juego en este momento:</p>
+                    <iframe src="/resources/Kka1on142IOdi2/triqui9.html" frameborder="0"></iframe>
+                    <p>En <i class="code">/js/main.js</i>, lo que hicimos fue que cada vez que le diéramos click a una
+                        casilla, después de asegurarnos con la función <i class="code">.classList.contains()</i> y con
+                        el operador lógico <i class="code">not (!)</i> de que no tenga ni la clase <i
+                            class="code">equis</i> ni la clase <i class="code">circulo</i>, con la función <i
+                            class="code">.classList.add()</i> le agregáramos como clase el valor de la variable <i
+                            class="code">turno</i> y luego de esto, si el valor de la variable <i class="code">turno</i>
+                        es <i class="code">"equis"</i>, lo cambiamos por <i class="code">"circulo"</i>, y si no, lo
+                        cambiamos por <i class="code">"equis"</i>. En <i class="code">/css/style.css</i>, escribimos
+                        estilos para todos los elementos con la clase <i>casilla</i> que además tengan la clase <i
+                            class="code">equis</i>, para que tengan un color de fondo rojo, y para los elementos con la
+                        clase <i>casilla</i> que además tengan la clase <i class="code">circulo</i> para que tengan un
+                        color de fondo azul.</p>
+                    <p>No cambiemos el color de fondo, agreguémosle un <i class="code">pseudo-elemento</i> de html con
+                        css, usando <i class="code">:after</i>, así:</p>
+                    <div class="parent">
+                        <div class="stScroll">
+                            <div class="ensanchador"></div>
+                        </div>
+                        <pre data-src="/resources/Kka1on142IOdi2/css/style3.css"></pre>
+                    </div>
+                    <iframe src="/resources/Kka1on142IOdi2/triqui10.html" frameborder="0"></iframe>
+                    <p>Primero, cambiamos algo del css de <i class="code">.casilla</i>, cambiamos el <i
+                            class="code">position</i> a <i class="code">relative</i>, el tamaño de fuente a <i
+                            class="code">25px</i> y la fuente a <i class="code">sans-serif</i>. Un <i
+                            class="code">pseudo-elemento</i> generado con <i class="code">:after</i> agrega html a un
+                        selector de css, <i class="code">content: "";</i> es el html que vas a agregar, <i
+                            class="code">text-align: -;</i> determina si como está el texto alineado horizontalmente,
+                        aquí lo centramos; <i class="code">width: -;</i> es el ancho, que va a ser 100% en este caso,
+                        para que se centre con respecto a todo el espacio horizontal disponible, y usemos <i
+                            class="code">display: -;</i>, en este caso <i class="code">inline-block</i> para que hagan
+                        efecto estos estilos; tendremos que usar <i class="code">position: absolute;</i> para poder
+                        centrar como queramos verticalmente, por eso usamos <i class="code">top: -;</i> y dimos con la
+                        cantidad <i class="code">-2px</i>, con respecto a la posición de la parte de arriba original.
+                    </p>
+                    <p>...//</p>
+                    <aside id="botones">
+                        <button class="button" id="down" title="Download full source.">Download Source</button>
+                        <button class="button" id="gith" title="View on GitHub"></button>
+                    </aside>
+                </section>
+            </section>
+        </article>
+    </main>
+    <script src="/js/prism.js"></script>
+    <script src="/js/main_blog.js"></script>
+</body>
+
+</html>
